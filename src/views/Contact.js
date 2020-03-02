@@ -2,7 +2,8 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {Navbar, NavDropdown, Nav } from 'react-bootstrap';
 import { MDBRow, MDBCol, MDBCard, MDBCardBody, MDBIcon, MDBBtn, MDBInput } from "mdbreact";
-import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './style.css';
 class Contact extends React.Component {
 
   render() {
@@ -97,7 +98,7 @@ class Contact extends React.Component {
         <MDBCol lg="4">
           <MDBCardBody className="contact text-center h-100">
             <h3 className="my-4 pb-2">Contact information</h3>
-            <ul className="text-lg-left list-unstyled ml-4">
+            <ul className="list-unstyled ml-4">
               <li>
                 <p>
                   <MDBIcon icon="map-marker-alt" className="pr-2" />
