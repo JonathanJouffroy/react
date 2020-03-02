@@ -56,7 +56,7 @@ state = {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
-                <Nav.Link href="#features">Tableau de bord</Nav.Link>
+                <Nav.Link href="/Page2">Tableau de bord</Nav.Link>
                 <Nav.Link> <Link to='Stats'>Statistiques</Link></Nav.Link>
                 <NavDropdown title="Carte" id="collasible-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">Monde</NavDropdown.Item>
