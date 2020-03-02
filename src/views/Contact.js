@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import {Navbar, NavDropdown, Nav } from 'react-bootstrap';
 import { MDBRow, MDBCol, MDBCard, MDBCardBody, MDBIcon, MDBBtn, MDBInput } from "mdbreact";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './contact.css';
+import './style.css';
 class Contact extends React.Component {
 
   render() {
