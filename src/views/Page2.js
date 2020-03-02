@@ -128,7 +128,6 @@ state = {
             </MDBRow>
             <MDBRow className="mb-4">
         <MDBCol xl="3" md="6" className="mb-r">
-          <MDBCard className="cascading-admin-card">
               <div className="admin-up">
               <MDBIcon icon="money-bill-alt" className="primary-color"/>
                 <div className="data">
@@ -145,11 +144,9 @@ state = {
                 </div>
                 <MDBCardText>Better than last week (25%)</MDBCardText>
               </MDBCardBody>
-            </MDBCard>
             
         </MDBCol>
         <MDBCol xl="3" md="6" className="mb-r">
-          <MDBCard className="cascading-admin-card">
               <div className="admin-up">
               <MDBIcon icon="chart-line" className="warning-color"/>
                 <div className="data">
@@ -166,10 +163,8 @@ state = {
                 </div>
                 <MDBCardText>Worse than last week (25%)</MDBCardText>
               </MDBCardBody>
-            </MDBCard>
         </MDBCol>
         <MDBCol xl="3" md="6" className="mb-r">
-          <MDBCard className="cascading-admin-card">
               <div className="admin-up">
               <MDBIcon icon="chart-pie" className="light-blue lighten-1"/>
                 <div className="data">
@@ -186,10 +181,8 @@ state = {
                 </div>
                 <MDBCardText>Worse than last week (75%)</MDBCardText>
               </MDBCardBody>
-            </MDBCard>
         </MDBCol>
         <MDBCol xl="3" md="6" className="mb-r">
-          <MDBCard className="cascading-admin-card">
               <div className="admin-up">
               <MDBIcon icon="chart-bar" className="red accent-2"/>
                 <div className="data">
@@ -206,7 +199,6 @@ state = {
                 </div>
                 <MDBCardText>Better than last week (30%)</MDBCardText>
               </MDBCardBody>
-            </MDBCard>
         </MDBCol>
     </MDBRow>
         </div>
