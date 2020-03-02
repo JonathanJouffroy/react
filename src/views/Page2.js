@@ -64,7 +64,7 @@ state = {
             </NavDropdown>
             </Nav>
                 <Nav>
-                    <Nav.Link> <Link to='/Page3'>Se connecter</Link></Nav.Link>
+                    <Nav.Link> <Link to='/Page3'>Contact</Link></Nav.Link>
                     <Nav.Link eventKey={2} href="#memes">
                     Paramètres
                     </Nav.Link>
