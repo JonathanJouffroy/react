@@ -40,7 +40,7 @@ componentDidMount = () =>{
           {this.state.coronavirus.map((e,i) => (<p key={i}>{e}</p>))}
         <input type='text' name='infected' onChange={(e) => this.handleChange(e)}/>
         <button onClick={() => this.addInfected()}>Ajouter</button>
-        <Link to="/Page2">Learn React</Link>
+        <Link to="/Dashboard">Learn React</Link>
       </header>
     </div>
   );

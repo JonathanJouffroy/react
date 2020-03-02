@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './views/App';
-import Page2 from './views/Page2';
+import Page2 from './views/Dashboard';
 import Contact from './views/Contact';
 import Stats from './views/Stats';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
@@ -10,13 +10,14 @@ import * as serviceWorker from './serviceWorker';
 import '@fortawesome/fontawesome-free/css/all.min.css'; import
 'bootstrap-css-only/css/bootstrap.min.css'; import
 'mdbreact/dist/css/mdb.css';
+import Dashboard from './views/Dashboard';
 
 const Root = () => {
     return(
             <Router>
                 <Switch>
                     <Route exact path='/' component={App} />
-                    <Route exact path='/page2' component={Page2} />
+                    <Route exact path='/Dashboard' component={Dashboard} />
                     <Route exact path='/contact' component={Contact} />
                     <Route exact path='/Stats' component={Stats} />
                 </Switch>

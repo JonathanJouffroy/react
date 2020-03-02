@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { MDBIcon,MDBCardGroup,MDBContainer, MDBRow ,MDBCol, MDBCard, MDBCardBody, MDBCardTitle, MDBCardText } from 'mdbreact';
 import { Polar, Doughnut } from 'react-chartjs-2';
 
-class Page2 extends React.Component {
+class Dashboard extends React.Component {
 
 
 constructor(props) {
@@ -56,7 +56,7 @@ state = {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
-                <Nav.Link href="/Page2">Tableau de bord</Nav.Link>
+                <Nav.Link href="/Dashboard">Tableau de bord</Nav.Link>
                 <Nav.Link href="/Stats" > Statistiques</Nav.Link>
                 <NavDropdown title="Carte" id="collasible-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">Monde</NavDropdown.Item>
@@ -205,4 +205,4 @@ state = {
     );
     }
 }
-export default Page2;
+export default Dashboard;
