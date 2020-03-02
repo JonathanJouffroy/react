@@ -10,12 +10,12 @@ class Page3 extends React.Component {
   return (
     <div>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Navbar.Brand href="#home">Dashboard</Navbar.Brand>
+        <Navbar.Brand href="/Page2">Home</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
               <Nav.Link href="/Page2">Tableau de bord</Nav.Link>
-              <Nav.Link href="#pricing">Statistique</Nav.Link>
+              <Nav.Link href="/Stats">Statistique</Nav.Link>
               <NavDropdown title="Carte" id="collasible-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Monde</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.1">France</NavDropdown.Item>
