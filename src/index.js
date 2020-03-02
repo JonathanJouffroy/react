@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './views/App';
 import Page2 from './views/Page2';
-import Page3 from './views/Page3';
+import Contact from './views/Contact';
 import Stats from './views/Stats';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
@@ -17,7 +17,7 @@ const Root = () => {
                 <Switch>
                     <Route exact path='/' component={App} />
                     <Route exact path='/page2' component={Page2} />
-                    <Route exact path='/page3' component={Page3} />
+                    <Route exact path='/contact' component={Contact} />
                     <Route exact path='/Stats' component={Stats} />
                 </Switch>
             </Router>
