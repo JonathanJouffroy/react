@@ -3,8 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './views/App';
 import Page2 from './views/Page2';
+import Page3 from './views/Page3';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
+import '@fortawesome/fontawesome-free/css/all.min.css'; import
+'bootstrap-css-only/css/bootstrap.min.css'; import
+'mdbreact/dist/css/mdb.css';
 
 const Root = () => {
     return(
@@ -12,6 +16,7 @@ const Root = () => {
                 <Switch>
                     <Route exact path='/' component={App} />
                     <Route exact path='/page2' component={Page2} />
+                    <Route exact path='/page3' component={Page3} />
                 </Switch>
             </Router>
     )
