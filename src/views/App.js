@@ -1,7 +1,7 @@
 import React from 'react';
-import logo from './logo.svg';
+import logo from '../logo.svg';
 import './App.css';
-
+import {Link} from 'react-router-dom';
 
 class App extends React.Component {
 
@@ -40,14 +40,7 @@ componentDidMount = () =>{
           {this.state.coronavirus.map((e,i) => (<p key={i}>{e}</p>))}
         <input type='text' name='infected' onChange={(e) => this.handleChange(e)}/>
         <button onClick={() => this.addInfected()}>Ajouter</button>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Link to="/Page2">Learn React</Link>
       </header>
     </div>
   );
