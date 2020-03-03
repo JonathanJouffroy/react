@@ -99,7 +99,7 @@ state = {
     return (
         <div>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-                <Navbar.Brand><Link to="/Page2">Home</Link></Navbar.Brand>
+                <Navbar.Brand><Link to="/Dashboard">Home</Link></Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">

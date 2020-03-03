@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {Navbar, NavDropdown, Nav } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { MDBIcon,MDBCardGroup,MDBContainer, MDBRow ,MDBCol, MDBCard, MDBCardBody, MDBCardTitle, MDBCardText } from 'mdbreact';
+import { MDBCardImage,MDBBtn,MDBIcon,MDBCardGroup,MDBContainer, MDBRow ,MDBCol, MDBCard, MDBCardBody, MDBCardTitle, MDBCardText } from 'mdbreact';
 import { Polar, Doughnut } from 'react-chartjs-2';
 
 class Dashboard extends React.Component {
@@ -129,7 +129,6 @@ state = {
             <MDBRow className="mb-4">
         <MDBCol xl="3" md="6" className="mb-r">
               <div className="admin-up">
-              <MDBIcon icon="money-bill-alt" className="primary-color"/>
                 <div className="data">
                   <p>SALES</p>
                   <h4>
@@ -148,7 +147,6 @@ state = {
         </MDBCol>
         <MDBCol xl="3" md="6" className="mb-r">
               <div className="admin-up">
-              <MDBIcon icon="chart-line" className="warning-color"/>
                 <div className="data">
                   <p>SUBSCRIPTIONS</p>
                   <h4>
@@ -166,7 +164,6 @@ state = {
         </MDBCol>
         <MDBCol xl="3" md="6" className="mb-r">
               <div className="admin-up">
-              <MDBIcon icon="chart-pie" className="light-blue lighten-1"/>
                 <div className="data">
                   <p>TRAFFIC</p>
                   <h4>
@@ -184,7 +181,6 @@ state = {
         </MDBCol>
         <MDBCol xl="3" md="6" className="mb-r">
               <div className="admin-up">
-              <MDBIcon icon="chart-bar" className="red accent-2"/>
                 <div className="data">
                   <p>ORGANIC TRAFFIC</p>
                   <h4>
@@ -201,6 +197,24 @@ state = {
               </MDBCardBody>
         </MDBCol>
     </MDBRow>
+    <MDBRow className="justify-content-center">
+        <MDBCol sm="12" md="6" lg="3" className="mb-5">
+            <MDBCard>
+                <MDBCardImage className="img-fluid" />
+                <MDBCardBody>
+                    <MDBCardTitle className="text-center mb-2 font-bold">Alice Mayer</MDBCardTitle>
+                    <MDBCardTitle sub className="text-center indigo-text mb-2 font-bold">Photographer</MDBCardTitle>
+                    <MDBCardText>
+                        <strong className="mb-2">About:</strong>
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione perferendis quod animi dignissimos consectetur quibusdam numquam laboriosam, minus, provident...
+                    </MDBCardText>
+                    <div className="row justify-content-end pr-1">
+                        <MDBBtn size="sm" outline color="primary">More...</MDBBtn>
+                    </div>
+                </MDBCardBody>
+            </MDBCard>
+        </MDBCol>
+        </MDBRow>
         </div>
     );
     }

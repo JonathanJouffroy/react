@@ -1,7 +1,10 @@
 import React from 'react';
 import logo from '../logo.svg';
-import './App.css';
+import './App.css'; 
 import {Link} from 'react-router-dom';
+import { connect } from 'react-redux';
+import * as fromActions from '../actions'
+
 
 class App extends React.Component {
 
@@ -40,10 +43,23 @@ componentDidMount = () =>{
           {this.state.coronavirus.map((e,i) => (<p key={i}>{e}</p>))}
         <input type='text' name='infected' onChange={(e) => this.handleChange(e)}/>
         <button onClick={() => this.addInfected()}>Ajouter</button>
-        <Link to="/Dashboard">Learn React</Link>
+        <Link to="/Dashboard">Tableau de bord</Link>
+        <p>{this.props.values.value}</p>
+        <button onClick={() => this.props.addOne()}>Add One</button>
+        <input type='text' name='numero' />
       </header>
     </div>
   );
 }
 }
-export default App;
+
+const mapStateToProps = (state) => ({
+     values : state.values
+})
+
+const mapDispatchToProps = dispatch => ({
+     addOne: () => dispatch(fromActions.addOne()),
+     addX: (x) => dispatch(fromActions.addX(x))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
