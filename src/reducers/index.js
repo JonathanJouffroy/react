@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux'
-import values  from './add'
+import valuesReducer  from './add'
+import studentsReducer from './students'
 
 const appReducer = combineReducers({
-    values
+    valuesReducer,
+    studentsReducer
 })
 
 const rootReducer = (state, action) => {

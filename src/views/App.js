@@ -31,6 +31,7 @@ addInfected = (e) =>{
 
 componentDidMount = () =>{
   console.log('component did mount')
+  
 }
 
   render() {
@@ -44,7 +45,6 @@ componentDidMount = () =>{
         <input type='text' name='infected' onChange={(e) => this.handleChange(e)}/>
         <button onClick={() => this.addInfected()}>Ajouter</button>
         <Link to="/Dashboard">Tableau de bord</Link>
-        <p>{this.props.values.value}</p>
         <button onClick={() => this.props.addOne()}>Add One</button>
         <input type='text' name='numero' />
       </header>
@@ -59,7 +59,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = dispatch => ({
      addOne: () => dispatch(fromActions.addOne()),
-     addX: (x) => dispatch(fromActions.addX(x))
+     addX: (x) => dispatch(fromActions.addX(x)),
+     getStudents: () => dispatch(fromActions.getStudents())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
