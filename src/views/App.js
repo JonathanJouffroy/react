@@ -3,7 +3,7 @@ import logo from '../logo.svg';
 import './App.css'; 
 import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
-import * as fromActions from '../actions'
+import * as fromActions from '../actions';
 
 
 class App extends React.Component {
@@ -12,7 +12,8 @@ class App extends React.Component {
 constructor(props) {
   super(props)
   this.state={
-  coronavirus:['Adbdel','Jérome']
+  coronavirus:['Adbdel','Jérome'],
+
    }
 }
 
@@ -29,9 +30,9 @@ addInfected = (e) =>{
   })
 }
 
-componentDidMount = () =>{
+componentDidMount = async () =>{
   console.log('component did mount')
-  
+  await this.props.getStudents()
 }
 
   render() {
@@ -40,13 +41,13 @@ componentDidMount = () =>{
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        
           {this.state.coronavirus.map((e,i) => (<p key={i}>{e}</p>))}
         <input type='text' name='infected' onChange={(e) => this.handleChange(e)}/>
         <button onClick={() => this.addInfected()}>Ajouter</button>
         <Link to="/Dashboard">Tableau de bord</Link>
         <button onClick={() => this.props.addOne()}>Add One</button>
         <input type='text' name='numero' />
+        { this.props.students.map((e, i) => <p key={i}> {e.name} </p>)}
       </header>
     </div>
   );
@@ -54,13 +55,14 @@ componentDidMount = () =>{
 }
 
 const mapStateToProps = (state) => ({
-     values : state.values
+     values : state.valuesReducer.value,
+     students: state.studentsReducer.students
 })
 
 const mapDispatchToProps = dispatch => ({
      addOne: () => dispatch(fromActions.addOne()),
      addX: (x) => dispatch(fromActions.addX(x)),
-     getStudents: () => dispatch(fromActions.getStudents())
+     getStudents: () => dispatch(fromActions.getStudentsSaga())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

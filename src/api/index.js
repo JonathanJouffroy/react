@@ -1,5 +1,5 @@
 export const getStudents = async () => {
-    const url = 'http://localhost:8080/students'
+    const url = 'http://localhost:8080/v1/users'
 
     try
     {
