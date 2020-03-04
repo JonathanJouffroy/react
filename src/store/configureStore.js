@@ -15,16 +15,9 @@ const sagaMiddleware = createSagaMiddleware()
 export default createStore(
     rootReducer,
     persistedStore,
-    applyMiddleware(sagaMiddleware,routerMiddleware(history), logger)
+    applyMiddleware(sagaMiddleware, routerMiddleware(history), logger)
 )
 
 sagaMiddleware.run(rootSaga)
-
-/*export default createStore(
-    rootReducer,
-    persistedStore,
-    applyMiddleware(thunk,routerMiddleware(history), logger)
-)*/
-
 
 

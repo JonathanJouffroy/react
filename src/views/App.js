@@ -3,7 +3,7 @@ import logo from '../logo.svg';
 import './App.css'; 
 import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
-import * as fromActions from '../actions'
+import * as fromActions from '../actions';
 
 
 
@@ -41,7 +41,6 @@ componentDidMount = async () =>{
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        
           {this.state.coronavirus.map((e,i) => (<p key={i}>{e}</p>))}
         <input type='text' name='infected' onChange={(e) => this.handleChange(e)}/>
         <button onClick={() => this.addInfected()}>Ajouter</button>

@@ -1,5 +1,6 @@
 import io from 'socket.io-client'
-const socketServerURL ='http://localhost:8080/'
+
+const socketServerURL = 'http://localhost:8080'
 let socket;
 
 export const connect = () => {
