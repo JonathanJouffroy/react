@@ -1,18 +1,30 @@
-import {createStore, applyMiddleware} from 'redux';
+import {createStore, applyMiddleware} from 'redux'
 import rootReducer from '../reducers'
 import logger from 'redux-logger'
+import thunk from 'redux-thunk'
 import { loadState } from './localStorage'
 import { createBrowserHistory } from 'history'
 import { routerMiddleware } from 'react-router-redux'
+import createSagaMiddleware from 'redux-saga'
+import rootSaga from '../saga/users'
 
 const persistedStore = loadState()
 export const history = createBrowserHistory()
+const sagaMiddleware = createSagaMiddleware()
 
 export default createStore(
     rootReducer,
     persistedStore,
-    applyMiddleware(routerMiddleware(history), logger)
+    applyMiddleware(sagaMiddleware,routerMiddleware(history), logger)
 )
+
+sagaMiddleware.run(rootSaga)
+
+/*export default createStore(
+    rootReducer,
+    persistedStore,
+    applyMiddleware(thunk,routerMiddleware(history), logger)
+)*/
 
 
 

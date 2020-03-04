@@ -52,22 +52,19 @@ state = {
     return (
         <div>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-                <Navbar.Brand><Link to="/Page2">Home</Link></Navbar.Brand>
+                <Navbar.Brand href="/Home">Home</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
                 <Nav.Link href="/Dashboard">Tableau de bord</Nav.Link>
                 <Nav.Link href="/Stats" > Statistiques</Nav.Link>
-                <NavDropdown title="Carte" id="collasible-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Monde</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.1">France</NavDropdown.Item>
+                <NavDropdown title="Produits" id="collasible-nav-dropdown">
+                <NavDropdown.Item href="/Products">Visualiser les produits</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.1">Ajouter un produits</NavDropdown.Item>
             </NavDropdown>
             </Nav>
                 <Nav>
-                    <Nav.Link> <Link to='/Contact'>Contact</Link></Nav.Link>
-                    <Nav.Link eventKey={2} href="#memes">
-                    Paramètres
-                    </Nav.Link>
+                    <Nav.Link href="/Contact">Contact</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
             </Navbar>

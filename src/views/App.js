@@ -6,13 +6,14 @@ import { connect } from 'react-redux';
 import * as fromActions from '../actions'
 
 
+
 class App extends React.Component {
 
 
 constructor(props) {
   super(props)
   this.state={
-  coronavirus:['Adbdel','Jérome']
+  coronavirus:['Abdel','Jérome']
    }
 }
 
@@ -29,8 +30,9 @@ addInfected = (e) =>{
   })
 }
 
-componentDidMount = () =>{
+componentDidMount = async () =>{
   console.log('component did mount')
+  await this.props.getUsers()
 }
 
   render() {
@@ -44,9 +46,11 @@ componentDidMount = () =>{
         <input type='text' name='infected' onChange={(e) => this.handleChange(e)}/>
         <button onClick={() => this.addInfected()}>Ajouter</button>
         <Link to="/Dashboard">Tableau de bord</Link>
-        <p>{this.props.values.value}</p>
+        <p>{this.props.values}</p>
         <button onClick={() => this.props.addOne()}>Add One</button>
-        <input type='text' name='numero' />
+        <input type='number' name='numero' onChange={(e) => this.handleChange(e)}/>
+        <button onClick={() => this.props.addX(this.state.numero) }>AddX</button>
+        {this.props.users.map((e,i) => <p key= {i}>{e.name + " " + e.firstname}</p>)}
       </header>
     </div>
   );
@@ -54,12 +58,14 @@ componentDidMount = () =>{
 }
 
 const mapStateToProps = (state) => ({
-     values : state.values
+     values : state.valuesReducer.value,
+     users: state.usersReducer.users
 })
 
 const mapDispatchToProps = dispatch => ({
      addOne: () => dispatch(fromActions.addOne()),
-     addX: (x) => dispatch(fromActions.addX(x))
+     addX: (x) => dispatch(fromActions.addX(x)),
+     getUsers: () => dispatch(fromActions.getUsersSaga())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

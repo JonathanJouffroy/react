@@ -5,6 +5,7 @@ import App from './views/App';
 import Contact from './views/Contact';
 import Dashboard from './views/Dashboard';
 import Stats from './views/Stats';
+import Home from './views/Home';
 import store, { history} from './store/configureStore';
 import { Provider } from 'react-redux';
 import { saveState } from './store/localStorage';
@@ -13,6 +14,7 @@ import * as serviceWorker from './serviceWorker';
 import '@fortawesome/fontawesome-free/css/all.min.css'; 
 import 'bootstrap-css-only/css/bootstrap.min.css'; 
 import 'mdbreact/dist/css/mdb.css';
+import Products from './views/Products';
 
 store.subscribe(() =>{
     saveState(store.getState())
@@ -28,6 +30,8 @@ const Root = () => {
                     <Route exact path='/Dashboard' component={Dashboard} />
                     <Route exact path='/contact' component={Contact} />
                     <Route exact path='/Stats' component={Stats} />
+                    <Route exact path='/Home' component={Home} />
+                    <Route exact path='/Products' component={Products}/>
                 </Switch>
             </Router>
         </Provider>
