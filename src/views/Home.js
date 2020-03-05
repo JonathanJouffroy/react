@@ -52,7 +52,7 @@ componentDidMount = async () =>{
           </Navbar.Collapse>
         </Navbar>
         <div class="content title ">
-          <h1>Notre équipes</h1>
+          <h1>Notre équipe</h1>
         </div>
         <div class="row text-center">
           <div class="col content">
