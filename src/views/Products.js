@@ -1,9 +1,7 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import {Navbar, NavDropdown, Nav } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {  MDBIcon,MDBCardGroup,MDBContainer, MDBRow ,MDBCol, MDBCard, MDBCardBody, MDBCardTitle, MDBCardText } from 'mdbreact';
-import { Line, Polar, Doughnut } from 'react-chartjs-2';
+import { MDBCardGroup,MDBContainer, MDBRow ,MDBCol, MDBCard, MDBCardBody, MDBCardTitle, MDBCardText } from 'mdbreact';
 import { connect } from 'react-redux';
 import * as fromActions from '../actions';
 
@@ -12,12 +10,13 @@ import * as fromActions from '../actions';
 class Products extends React.Component {
 
 
-constructor(props) {
-  super(props)
-}
-
 state = {
    
+  }
+
+  componentDidMount = async () =>{
+    console.log('component did mount')
+    await this.props.getProducts()
   }
 
   render() {
@@ -29,7 +28,7 @@ state = {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
-                <Nav.Link href="/Dashboard">Tableau de bord</Nav.Link>
+                <Nav.Link href="/Orders">Commandes</Nav.Link>
                 <Nav.Link href="/Stats">Statistiques</Nav.Link>
                 <NavDropdown title="Produits" id="collasible-nav-dropdown">
                 <NavDropdown.Item href="/Products">Visualiser les produits</NavDropdown.Item>
@@ -47,27 +46,43 @@ state = {
                     <MDBCardGroup deck>
                         <MDBCard>
                             <MDBCardBody>
-                                <MDBCardTitle tag="h5">{this.props.products.map((e,i) => <p key= {i}>{e.name}</p>)}</MDBCardTitle>
+                                <MDBCardTitle tag="h5">{this.props.products[0].name}</MDBCardTitle>
                                     <MDBCardText>
+                                        {this.props.products[0].description}
+                                    </MDBCardText>
+                                    <MDBCardText>
+                                        {"Prix : " +  + this.props.products[0].price + " " + "€"} 
+                                    </MDBCardText>
+                                    <MDBCardText>
+                                        {"Quantité : " + this.props.products[0].quantity}
                                     </MDBCardText>
                             </MDBCardBody>
                         </MDBCard>
                         <MDBCard>
                             <MDBCardBody>
-                                <MDBCardTitle tag="h5">Panel title</MDBCardTitle>
+                                <MDBCardTitle tag="h5">{this.props.products[1].name}</MDBCardTitle>
                                     <MDBCardText>
-                                        This panel has supporting text below as a natural lead-in to
-                                        additional content.
+                                        {this.props.products[1].description}
+                                    </MDBCardText>
+                                    <MDBCardText>
+                                        {"Prix : " + this.props.products[1].price + + " " + "€"}
+                                    </MDBCardText>
+                                    <MDBCardText>
+                                        {"Quantité : " + this.props.products[1].quantity}
                                     </MDBCardText>
                             </MDBCardBody>
                         </MDBCard>
                         <MDBCard>
                             <MDBCardBody>
-                                <MDBCardTitle tag="h5">Panel title</MDBCardTitle>
+                                <MDBCardTitle tag="h5">{this.props.products[1].name}</MDBCardTitle>
                                     <MDBCardText>
-                                        This is a wider panel with supporting text below as a natural
-                                        lead-in to additional content. This panel has even longer
-                                        content than the first to show that equal height action.
+                                        {this.props.products[1].description}
+                                    </MDBCardText>
+                                    <MDBCardText>
+                                        {"Prix : " + this.props.products[1].price + " " + "€"}
+                                    </MDBCardText>
+                                    <MDBCardText>
+                                        {"Quantité : " + this.props.products[1].quantity}
                                     </MDBCardText>
                             </MDBCardBody>
                     </MDBCard>
@@ -84,7 +99,7 @@ const mapStateToProps = (state) => ({
   })
   
   const mapDispatchToProps = dispatch => ({
-    getProducts: () => dispatch(fromActions.getProducts())
+    getProducts: () => dispatch(fromActions.getProductsSaga()),
   })
 export default connect(mapStateToProps, mapDispatchToProps)(Products);
 

@@ -36,7 +36,7 @@ componentDidMount = async () =>{
 }
 
   render() {
-
+ 
   return (
     <div className="App">
       <header className="App-header">
@@ -44,7 +44,7 @@ componentDidMount = async () =>{
           {this.state.coronavirus.map((e,i) => (<p key={i}>{e}</p>))}
         <input type='text' name='infected' onChange={(e) => this.handleChange(e)}/>
         <button onClick={() => this.addInfected()}>Ajouter</button>
-        <Link to="/Dashboard">Tableau de bord</Link>
+        <Link to="/Home">Tableau de bord</Link>
         <p>{this.props.values}</p>
         <button onClick={() => this.props.addOne()}>Add One</button>
         <input type='number' name='numero' onChange={(e) => this.handleChange(e)}/>

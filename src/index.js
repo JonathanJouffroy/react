@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './views/App';
 import Contact from './views/Contact';
-import Dashboard from './views/Dashboard';
+import Orders from './views/Orders';
 import Stats from './views/Stats';
 import Home from './views/Home';
 import store, { history} from './store/configureStore';
@@ -27,7 +27,7 @@ const Root = () => {
             <Router history={history}>
                 <Switch>
                     <Route exact path='/' component={App} />
-                    <Route exact path='/Dashboard' component={Dashboard} />
+                    <Route exact path='/Orders' component={Orders} />
                     <Route exact path='/contact' component={Contact} />
                     <Route exact path='/Stats' component={Stats} />
                     <Route exact path='/Home' component={Home} />

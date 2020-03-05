@@ -1,16 +1,10 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import {Navbar, NavDropdown, Nav } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {  MDBIcon,MDBCardGroup,MDBContainer, MDBRow ,MDBCol, MDBCard, MDBCardBody, MDBCardTitle, MDBCardText } from 'mdbreact';
+import {  MDBContainer, MDBRow ,MDBCol} from 'mdbreact';
 import { Line, Polar, Doughnut } from 'react-chartjs-2';
 
 class Stats extends React.Component {
-
-
-constructor(props) {
-  super(props)
-}
 
 state = {
     dataPolar: {
@@ -103,7 +97,7 @@ state = {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
-                <Nav.Link href="/Dashboard">Tableau de bord</Nav.Link>
+                <Nav.Link href="/Orders">Commandes</Nav.Link>
                 <Nav.Link href="/Stats">Statistiques</Nav.Link>
                 <NavDropdown title="Produits" id="collasible-nav-dropdown">
                 <NavDropdown.Item href="/Products">Visualiser les produits</NavDropdown.Item>

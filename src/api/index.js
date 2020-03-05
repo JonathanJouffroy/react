@@ -31,3 +31,20 @@ export const getProducts = async () => {
         return console.error(err)
     }
 }
+
+
+export const getOrders = async () => {
+    const url='http://localhost:8080/v1/orders'
+    try{
+        const response = await fetch(url, {
+            method: 'GET',
+            headers:{
+                'Accept': 'application/json',
+                'Content-Type' : 'application/json'
+            }
+        })
+        return await response.json()
+    } catch(err){
+        return console.error(err)
+    }
+}

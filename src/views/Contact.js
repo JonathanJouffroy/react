@@ -1,7 +1,6 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import {Navbar, NavDropdown, Nav } from 'react-bootstrap';
-import { MDBRow, MDBCol, MDBCard, MDBCardBody, MDBIcon, MDBBtn, MDBInput } from "mdbreact";
+import { MDBRow, MDBCol, MDBCardBody, MDBIcon, MDBBtn, MDBInput } from "mdbreact";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
 class Contact extends React.Component {
@@ -15,7 +14,7 @@ class Contact extends React.Component {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
-              <Nav.Link href="/Dashboard">Tableau de bord</Nav.Link>
+              <Nav.Link href="/Orders">Commandes</Nav.Link>
               <Nav.Link href="/Stats">Statistiques</Nav.Link>
               <NavDropdown title="Produits" id="collasible-nav-dropdown">
               <NavDropdown.Item href="/Products">Visualiser les produits</NavDropdown.Item>

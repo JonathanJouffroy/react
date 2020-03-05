@@ -1,16 +1,12 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import {Navbar, NavDropdown, Nav } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { MDBCardImage,MDBBtn,MDBIcon,MDBCardGroup,MDBContainer, MDBRow ,MDBCol, MDBCard, MDBCardBody, MDBCardTitle, MDBCardText } from 'mdbreact';
+import { MDBCardImage,MDBBtn,MDBCardGroup,MDBContainer, MDBRow ,MDBCol, MDBCard, MDBCardBody, MDBCardTitle, MDBCardText } from 'mdbreact';
 import { Polar, Doughnut } from 'react-chartjs-2';
+import * as fromActions from '../actions';
+import { connect } from 'react-redux';
 
-class Dashboard extends React.Component {
-
-
-constructor(props) {
-  super(props)
-}
+class Orders extends React.Component {
 
 state = {
     dataPolar: {
@@ -47,6 +43,13 @@ state = {
     }
   }
 
+
+  componentDidMount = async () =>{
+    console.log('component did mount')
+    await this.props.getOrders()
+  }
+
+
   render() {
 
     return (
@@ -56,7 +59,7 @@ state = {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
-                <Nav.Link href="/Dashboard">Tableau de bord</Nav.Link>
+                <Nav.Link href="/Orders">Commandes</Nav.Link>
                 <Nav.Link href="/Stats" > Statistiques</Nav.Link>
                 <NavDropdown title="Produits" id="collasible-nav-dropdown">
                 <NavDropdown.Item href="/Products">Visualiser les produits</NavDropdown.Item>
@@ -68,17 +71,30 @@ state = {
                 </Nav>
             </Navbar.Collapse>
             </Navbar>
+            <MDBRow className='text-center'>
+                <MDBCol>
+                    <h1>Listes des commandes</h1>
+                </MDBCol>
+            </MDBRow>
             <MDBRow>
               <MDBCol>
                 <MDBContainer>
                     <MDBCardGroup deck>
                         <MDBCard>
-                            <MDBCardBody>
-                                <MDBCardTitle tag="h5">Panel title</MDBCardTitle>
+                            <MDBCardBody className='text-center'>
+                                <MDBCardTitle tag="h5"></MDBCardTitle>
+                                    <MDBCardText >
+                                    {"Numéro de la commande : " + this.props.orders[0].name_order}
+                                    </MDBCardText>
                                     <MDBCardText>
-                                         This is a wider panel with supporting text below as a natural
-                                         lead-in to additional content. This content is a little bit
-                                         longer.
+                                    {"Prix de la commande : " + this.props.orders[0].price_order}
+                                    </MDBCardText>
+                                    <MDBCardText>
+                                    {"Adresse de livraison : " + this.props.orders[0].ship_address}
+                                    </MDBCardText>
+                                    <MDBCardText>
+                                      
+                                    {"Adresse de facturation : " + this.props.orders[0].billing_address}
                                     </MDBCardText>
                             </MDBCardBody>
                         </MDBCard>
@@ -216,4 +232,12 @@ state = {
     );
     }
 }
-export default Dashboard;
+const mapStateToProps = (state) => ({
+  orders: state.ordersReducer.orders
+})
+
+const mapDispatchToProps = dispatch => ({
+  getOrders: () => dispatch(fromActions.getOrdersSaga())
+})
+export default connect(mapStateToProps, mapDispatchToProps)(Orders);
+
