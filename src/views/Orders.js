@@ -1,8 +1,7 @@
 import React from 'react';
 import {Navbar, NavDropdown, Nav } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { MDBCardGroup, MDBContainer, MDBRow ,MDBCol, MDBCard, MDBCardBody, MDBCardTitle, MDBCardText } from 'mdbreact';
-import { Polar, Doughnut } from 'react-chartjs-2';
+import { MDBCardGroup, MDBContainer, MDBRow ,MDBCol, MDBCard, MDBCardBody, MDBCardText } from 'mdbreact';
 import * as fromActions from '../actions';
 import { connect } from 'react-redux';
 import './style.css';

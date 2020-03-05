@@ -1,13 +1,12 @@
 import React from 'react';
 import {Navbar, NavDropdown, Nav, Card } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { MDBRow ,MDBCol, MDBIcon ,MDBCardImage,MDBCardBody,MDBCardTitle,MDBCardText,MDBBtn,MDBCard,MDBContainer,MDBCardGroup} from 'mdbreact';
+import { MDBCard, MDBIcon, MDBCardBody, MDBCardText } from 'mdbreact';
 import { connect } from 'react-redux';
 import * as fromActions from '../actions'
 import profil from  '../images/profil.png';
 import profil1 from '../images/profil-1.png';
 import profil2 from '../images/profil-2.png';
-import { getOrders } from '../api';
 import './style.css';
 
 class Home extends React.Component {
@@ -16,9 +15,20 @@ class Home extends React.Component {
 state = {
 }
 
+getTTOrders() {
+  let total = 0;
+  this.props.orders.forEach(element => {
+    total += element['price_order']
+  });
+  console.log(this.props.products)
+  return total
+}
+
 componentDidMount = async () =>{
   console.log('component did mount')
   await this.props.getUsers()
+  await this.props.getOrders()
+  await this.props.getProducts()
 }
   render() {
 
@@ -51,6 +61,71 @@ componentDidMount = async () =>{
             </Nav>
           </Navbar.Collapse>
         </Navbar>
+        <div class="content title">
+          <h1>Chiffres clés</h1>
+        </div>
+        <div class="row">
+          <div class="col content">
+            <MDBCard class="cascading-admin-card">
+              <div class="admin-up">
+                <div class="data text-align">
+                  <MDBIcon icon="chart-pie" class="light-blue lighten-1"/>
+                  <p>Total de produits</p>
+                  <h4><strong>2000</strong></h4>
+                </div>
+              </div>
+              <MDBCardBody>
+                <div class="progress">
+                  <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="25"
+                  class="progress-bar grey darken-2" role="progressbar" style={{ width: '75%' }}></div>
+                </div>
+                <MDBCardText>
+                  Worse than last week (75%)
+                </MDBCardText>
+              </MDBCardBody>
+            </MDBCard>
+          </div>
+          <div class="col content">
+            <MDBCard class="cascading-admin-card">
+              <div class="admin-up">
+                <div class="data text-align">
+                  <MDBIcon icon="chart-pie" class="light-blue lighten-1"/>
+                  <p>Prix total des ventes</p>
+                  <h4><strong>{ this.getTTOrders() } €</strong></h4>
+                </div>
+              </div>
+              <MDBCardBody>
+                <div class="progress">
+                  <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="25"
+                  class="progress-bar grey darken-2" role="progressbar" style={{ width: '12%' }}></div>
+                </div>
+                <MDBCardText>
+                  Worse than last week (12%)
+                </MDBCardText>
+              </MDBCardBody>
+            </MDBCard>
+          </div>
+          <div class="col content">
+            <MDBCard class="cascading-admin-card">
+              <div class="admin-up">
+                <div class="data text-align">
+                  <MDBIcon icon="chart-pie" class="light-blue lighten-1"/>
+                  <p>Nombre d'utilisateurs</p>
+                  <h4><strong>{ this.props.users.length }</strong></h4>
+                </div>
+              </div>
+              <MDBCardBody>
+                <div class="progress">
+                  <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="25"
+                  class="progress-bar grey darken-2" role="progressbar" style={{ width: '75%' }}></div>
+                </div>
+                <MDBCardText>
+                  Worse than last week (75%)
+                </MDBCardText>
+              </MDBCardBody>
+            </MDBCard>
+          </div>
+        </div>
         <div class="content title ">
           <h1>Notre équipe</h1>
         </div>
@@ -104,11 +179,14 @@ componentDidMount = async () =>{
 }
 const mapStateToProps = (state) => ({
   values : state.valuesReducer.value,
-  users: state.usersReducer.users
+  users: state.usersReducer.users,
+  products: state.productsReducer.products,
+  orders: state.ordersReducer.orders
 })
 
 const mapDispatchToProps = dispatch => ({
   getUsers: () => dispatch(fromActions.getUsersSaga()),
-  getOrders: () => dispatch(fromActions.getOrdersSaga())
+  getOrders: () => dispatch(fromActions.getOrdersSaga()),
+  getProducts: () => dispatch(fromActions.getProductsSaga())
 })
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

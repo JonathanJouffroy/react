@@ -53,7 +53,7 @@ state = {
                                         {e.description}
                                     </MDBCardText>
                                     <MDBCardText>
-                                        {"Prix : " +  + e.price + " " + "€"} 
+                                        {"Prix : " + e.price + " €"} 
                                     </MDBCardText>
                                     <MDBCardText>
                                         {"Quantité : " + e.quantity}
