@@ -2,7 +2,7 @@ import React from 'react';
 import {Navbar, NavDropdown, Nav } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { MDBContainer, MDBRow , MDBCol, MDBTable, MDBTableHead, MDBTableBody } from 'mdbreact';
-import { Line, Polar, Doughnut } from 'react-chartjs-2';
+import { Polar, Doughnut } from 'react-chartjs-2';
 import { connect } from 'react-redux';
 import * as fromActions from '../actions';
 

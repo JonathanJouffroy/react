@@ -1,13 +1,11 @@
 import React from 'react';
 import {Navbar, NavDropdown, Nav, Card } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { MDBRow ,MDBCol, MDBIcon ,MDBCardImage,MDBCardBody,MDBCardTitle,MDBCardText,MDBBtn,MDBCard,MDBContainer,MDBCardGroup} from 'mdbreact';
 import { connect } from 'react-redux';
 import * as fromActions from '../actions'
 import profil from  '../images/profil.png';
 import profil1 from '../images/profil-1.png';
 import profil2 from '../images/profil-2.png';
-import { getOrders } from '../api';
 import './style.css';
 
 class Home extends React.Component {
