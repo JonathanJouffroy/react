@@ -1,12 +1,12 @@
 import React from 'react';
 import {Navbar, NavDropdown, Nav } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { MDBCardImage,MDBBtn,MDBCardGroup,MDBContainer, MDBRow ,MDBCol, MDBCard, MDBCardBody, MDBCardTitle, MDBCardText } from 'mdbreact';
+import { MDBCardGroup, MDBContainer, MDBRow ,MDBCol, MDBCard, MDBCardBody, MDBCardTitle, MDBCardText } from 'mdbreact';
 import { Polar, Doughnut } from 'react-chartjs-2';
 import * as fromActions from '../actions';
 import { connect } from 'react-redux';
 
-class Dashboard extends React.Component {
+class Orders extends React.Component {
 
   constructor(props)
   {
@@ -50,6 +50,7 @@ class Dashboard extends React.Component {
 
   componentDidMount = async () =>{
     console.log('component did mount')
+  
     await this.props.getOrders()
   }
 
@@ -87,6 +88,7 @@ class Dashboard extends React.Component {
                         <MDBCard>
                             <MDBCardBody className='text-center'>
                                 <MDBCardTitle tag="h5"></MDBCardTitle>
+                                { this.props.orders.length > 0 ? true : null }
                                     <MDBCardText >
                                     {"Numéro de la commande : " + this.props.orders[0].name_order}
                                     </MDBCardText>

@@ -51,7 +51,7 @@ componentDidMount = async () =>{
         <p>{this.props.values}</p>
         <button onClick={() => this.props.addOne()}>Add One</button>
         <input type='text' name='numero' />
-        { this.props.students.map((e,i) => <User text={e.name}></User>) }
+        { this.props.users.map((e,i) => <User text={e.name}></User>) }
       </header>
     </div>
   );
