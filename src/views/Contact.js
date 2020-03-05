@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import {Navbar, NavDropdown, Nav } from 'react-bootstrap';
 import { MDBRow, MDBCol, MDBCardBody, MDBIcon, MDBBtn, MDBInput } from "mdbreact";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -11,22 +10,19 @@ class Contact extends React.Component {
   return (
     <div>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Navbar.Brand href="/Dashboard">Home</Navbar.Brand>
+        <Navbar.Brand href="/Home">Home</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
-              <Nav.Link href="/Dashboard">Tableau de bord</Nav.Link>
-              <Nav.Link href="/Stats">Statistique</Nav.Link>
-              <NavDropdown title="Carte" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Monde</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.1">France</NavDropdown.Item>
+              <Nav.Link href="/Orders">Commandes</Nav.Link>
+              <Nav.Link href="/Stats">Statistiques</Nav.Link>
+              <NavDropdown title="Produits" id="collasible-nav-dropdown">
+              <NavDropdown.Item href="/Products">Visualiser les produits</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.1">Ajouter un produits</NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <Nav>
-            <Nav.Link> <Link to='/Contact'>Contact</Link></Nav.Link>
-            <Nav.Link eventKey={2} href="#memes">
-              Paramètres
-            </Nav.Link>
+               <Nav.Link href="/Contact">Contact</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
@@ -37,7 +33,7 @@ class Contact extends React.Component {
           <MDBCardBody className="form">
             <h3 className="mt-4">
               <MDBIcon icon="envelope" className="pr-2" />
-              Write to us:
+             Nous contacter:
             </h3>
             <MDBRow>
               <MDBCol md="6">
@@ -45,7 +41,7 @@ class Contact extends React.Component {
                   <MDBInput
                     type="text"
                     id="form-contact-name"
-                    label="Your name"
+                    label="Votre nom"
                   />
                 </div>
               </MDBCol>
@@ -54,7 +50,7 @@ class Contact extends React.Component {
                   <MDBInput
                     type="text"
                     id="form-contact-email"
-                    label="Your email"
+                    label="Votre e-mail"
                   />
                 </div>
               </MDBCol>
@@ -65,7 +61,7 @@ class Contact extends React.Component {
                   <MDBInput
                     type="text"
                     id="form-contact-phone"
-                    label="Your phone"
+                    label="Votre téléphone"
                   />
                 </div>
               </MDBCol>
@@ -74,7 +70,7 @@ class Contact extends React.Component {
                   <MDBInput
                     type="text"
                     id="form-contact-company"
-                    label="Your company"
+                    label="Votre société"
                   />
                 </div>
               </MDBCol>
@@ -85,7 +81,7 @@ class Contact extends React.Component {
                   <MDBInput
                     type="textarea"
                     id="form-contact-message"
-                    label="Your message"
+                    label="Votre message"
                   />
                   <MDBBtn rounded color="blue">
                     <MDBIcon icon="paper-plane" />
@@ -97,12 +93,12 @@ class Contact extends React.Component {
         </MDBCol>
         <MDBCol lg="4">
           <MDBCardBody className="contact text-center h-100">
-            <h3 className="my-4 pb-2">Contact information</h3>
+            <h3 className="my-4 pb-2">Information de contact</h3>
             <ul className="list-unstyled ml-4">
               <li>
                 <p>
                   <MDBIcon icon="map-marker-alt" className="pr-2" />
-                  New York, 94126 USA
+                  Lyon, 69000 FRA
                 </p>
               </li>
               <li>
@@ -113,7 +109,7 @@ class Contact extends React.Component {
               <li>
                 <p>
                   <MDBIcon icon="envelope" className="pr-2" />
-                  contact@example.com
+                  contact@dashboard.com
                 </p>
               </li>
             </ul>

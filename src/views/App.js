@@ -9,14 +9,14 @@ import * as fromActions from '../actions';
 import User from '../component/user.component'
 
 
+
 class App extends React.Component {
 
 
 constructor(props) {
   super(props)
   this.state={
-  coronavirus:['Adbdel','Jérome'],
-
+  coronavirus:['Abdel','Jérome']
    }
 }
 
@@ -35,11 +35,11 @@ addInfected = (e) =>{
 
 componentDidMount = async () =>{
   console.log('component did mount')
-  await this.props.getStudents()
+  await this.props.getUsers()
 }
 
   render() {
-
+ 
   return (
     <div className="App">
       <header className="App-header">
@@ -47,7 +47,8 @@ componentDidMount = async () =>{
           {this.state.coronavirus.map((e,i) => (<p key={i}>{e}</p>))}
         <input type='text' name='infected' onChange={(e) => this.handleChange(e)}/>
         <button onClick={() => this.addInfected()}>Ajouter</button>
-        <Link to="/Dashboard">Tableau de bord</Link>
+        <Link to="/Home">Tableau de bord</Link>
+        <p>{this.props.values}</p>
         <button onClick={() => this.props.addOne()}>Add One</button>
         <input type='text' name='numero' />
         { this.props.students.map((e,i) => <User text={e.name}></User>) }
@@ -59,13 +60,13 @@ componentDidMount = async () =>{
 
 const mapStateToProps = (state) => ({
      values : state.valuesReducer.value,
-     students: state.studentsReducer.students
+     users: state.usersReducer.users
 })
 
 const mapDispatchToProps = dispatch => ({
      addOne: () => dispatch(fromActions.addOne()),
      addX: (x) => dispatch(fromActions.addX(x)),
-     getStudents: () => dispatch(fromActions.getStudentsSaga())
+     getUsers: () => dispatch(fromActions.getUsersSaga())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

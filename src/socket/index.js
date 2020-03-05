@@ -7,7 +7,9 @@ export const connect = () => {
     socket = io(socketServerURL)
     return new Promise((resolve) => {
         socket.on('connect', () => {
+            console.log('connected')
             resolve(socket)
         })
     })
+
 }

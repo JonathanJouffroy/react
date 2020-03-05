@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import {Navbar, NavDropdown, Nav } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { MDBContainer, MDBRow ,MDBCol } from 'mdbreact';
@@ -94,31 +93,28 @@ state = {
     return (
         <div>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-                <Navbar.Brand><Link to="/Dashboard">Home</Link></Navbar.Brand>
+                <Navbar.Brand href="/Home">Home</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
-                <Nav.Link href="/Dashboard">Tableau de bord</Nav.Link>
-                <Nav.Link href="/Stats">Statistique</Nav.Link>
-                <NavDropdown title="Carte" id="collasible-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Monde</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.1">France</NavDropdown.Item>
+                <Nav.Link href="/Orders">Commandes</Nav.Link>
+                <Nav.Link href="/Stats">Statistiques</Nav.Link>
+                <NavDropdown title="Produits" id="collasible-nav-dropdown">
+                <NavDropdown.Item href="/Products">Visualiser les produits</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.1">Ajouter un produits</NavDropdown.Item>
             </NavDropdown>
             </Nav>
                 <Nav>
-                    <Nav.Link> <Link to='/Contact'>Contact</Link></Nav.Link>
-                    <Nav.Link eventKey={2} href="#memes">
-                    Paramètres
-                    </Nav.Link>
+                     <Nav.Link href="/Contact">Contact</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
             </Navbar>
             
-            <MDBRow>
+            <MDBRow  className="text-center">
                 <MDBCol>
                     
                     <MDBContainer>
-                        <h3 className="mt-5">Doughnut chart</h3>
+                        <h3 className="mt-5">Les meilleures ventes</h3>
                         <Doughnut data={this.state.dataDoughnut} options={{ responsive: true }} />
                     </MDBContainer>
                     
@@ -126,18 +122,18 @@ state = {
                 <MDBCol>
                     
                     <MDBContainer>
-                        <h3 className="mt-5">Polar area chart</h3>
+                        <h3 className="mt-5">Les plus consultés</h3>
                         <Polar data={this.state.dataPolar} options={{ responsive: true }} />
                     </MDBContainer>
                     
                 </MDBCol>
                
             </MDBRow>
-            <MDBRow>
+            <MDBRow  className="text-center">
                 <MDBCol>
                     
                     <MDBContainer>
-                        <h3 className="mt-5">Line chart</h3>
+                        <h3 className="mt-5">Les produits commmandés</h3>
                         <Line data={this.state.dataLine} options={{ responsive: true }} />
                     </MDBContainer>
                         
