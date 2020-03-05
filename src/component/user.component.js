@@ -5,15 +5,13 @@ class User extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-
         }
     }
 
     render() {
         return (
             <div>
-                <Card style={{ width: '15rem'}}>
-                </Card>
+                <p>{ this.props.text }</p>
             </div>
         )
     }

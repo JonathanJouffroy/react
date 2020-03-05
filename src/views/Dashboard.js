@@ -1,49 +1,48 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
-import {Navbar, NavDropdown, Nav } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { Navbar, NavDropdown, Nav } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { MDBCardImage,MDBBtn,MDBIcon,MDBCardGroup,MDBContainer, MDBRow ,MDBCol, MDBCard, MDBCardBody, MDBCardTitle, MDBCardText } from 'mdbreact';
+import { MDBCardImage,MDBBtn,MDBCardGroup,MDBContainer, MDBRow ,MDBCol, MDBCard, MDBCardBody, MDBCardTitle, MDBCardText } from 'mdbreact';
 import { Polar, Doughnut } from 'react-chartjs-2';
 
 class Dashboard extends React.Component {
 
-
-constructor(props) {
-  super(props)
-}
-
-state = {
-    dataPolar: {
+  constructor(props)
+  {
+    super(props)
+    this.state = {
+      dataPolar: {
+          datasets: [
+            {
+              data: [300, 50, 100, 40, 120],
+              backgroundColor: [
+                "rgba(247, 70, 74, 0.5)",
+                "rgba(70, 191, 189, 0.5)",
+                "rgba(253, 180, 92, 0.5)",
+                "rgba(148, 159, 177, 0.5)",
+                "rgba(77, 83, 96, 0.5)"
+              ],
+              label: "My dataset" // for legend
+            }
+          ],
+          labels: ["Red", "Green", "Yellow", "Grey", "Dark Grey"]
+        },
+      dataDoughnut: {
+        labels: ["Red", "Green", "Yellow", "Grey", "Dark Grey"],
         datasets: [
           {
             data: [300, 50, 100, 40, 120],
-            backgroundColor: [
-              "rgba(247, 70, 74, 0.5)",
-              "rgba(70, 191, 189, 0.5)",
-              "rgba(253, 180, 92, 0.5)",
-              "rgba(148, 159, 177, 0.5)",
-              "rgba(77, 83, 96, 0.5)"
-            ],
-            label: "My dataset" // for legend
+            backgroundColor: ["#F7464A", "#46BFBD", "#FDB45C", "#949FB1", "#4D5360"],
+            hoverBackgroundColor: [
+              "#FF5A5E",
+              "#5AD3D1",
+              "#FFC870",
+              "#A8B3C5",
+              "#616774"
+            ]
           }
-        ],
-        labels: ["Red", "Green", "Yellow", "Grey", "Dark Grey"]
-      },
-    dataDoughnut: {
-      labels: ["Red", "Green", "Yellow", "Grey", "Dark Grey"],
-      datasets: [
-        {
-          data: [300, 50, 100, 40, 120],
-          backgroundColor: ["#F7464A", "#46BFBD", "#FDB45C", "#949FB1", "#4D5360"],
-          hoverBackgroundColor: [
-            "#FF5A5E",
-            "#5AD3D1",
-            "#FFC870",
-            "#A8B3C5",
-            "#616774"
-          ]
-        }
-      ]
+        ]
+      }
     }
   }
 
@@ -110,12 +109,10 @@ state = {
     </MDBRow>
             <MDBRow>
                 <MDBCol>
-                    
                     <MDBContainer>
                         <h3 className="mt-5">Doughnut chart</h3>
                         <Doughnut data={this.state.dataDoughnut} options={{ responsive: true }} />
                     </MDBContainer>
-                    
                 </MDBCol>
                 <MDBCol>
                     
@@ -197,25 +194,7 @@ state = {
               </MDBCardBody>
         </MDBCol>
     </MDBRow>
-    <MDBRow className="justify-content-center">
-        <MDBCol sm="12" md="6" lg="3" className="mb-5">
-            <MDBCard>
-                <MDBCardImage className="img-fluid" />
-                <MDBCardBody>
-                    <MDBCardTitle className="text-center mb-2 font-bold">Alice Mayer</MDBCardTitle>
-                    <MDBCardTitle sub className="text-center indigo-text mb-2 font-bold">Photographer</MDBCardTitle>
-                    <MDBCardText>
-                        <strong className="mb-2">About:</strong>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione perferendis quod animi dignissimos consectetur quibusdam numquam laboriosam, minus, provident...
-                    </MDBCardText>
-                    <div className="row justify-content-end pr-1">
-                        <MDBBtn size="sm" outline color="primary">More...</MDBBtn>
-                    </div>
-                </MDBCardBody>
-            </MDBCard>
-        </MDBCol>
-        </MDBRow>
-        </div>
+      </div>
     );
     }
 }

@@ -5,6 +5,9 @@ import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as fromActions from '../actions';
 
+// Import Component
+import User from '../component/user.component'
+
 
 class App extends React.Component {
 
@@ -47,7 +50,7 @@ componentDidMount = async () =>{
         <Link to="/Dashboard">Tableau de bord</Link>
         <button onClick={() => this.props.addOne()}>Add One</button>
         <input type='text' name='numero' />
-        { this.props.students.map((e, i) => <p key={i}> {e.name} </p>)}
+        { this.props.students.map((e,i) => <User text={e.name}></User>) }
       </header>
     </div>
   );

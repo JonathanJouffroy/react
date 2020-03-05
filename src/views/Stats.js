@@ -2,15 +2,10 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {Navbar, NavDropdown, Nav } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {  MDBIcon,MDBCardGroup,MDBContainer, MDBRow ,MDBCol, MDBCard, MDBCardBody, MDBCardTitle, MDBCardText } from 'mdbreact';
+import { MDBContainer, MDBRow ,MDBCol } from 'mdbreact';
 import { Line, Polar, Doughnut } from 'react-chartjs-2';
 
 class Stats extends React.Component {
-
-
-constructor(props) {
-  super(props)
-}
 
 state = {
     dataPolar: {

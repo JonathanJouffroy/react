@@ -3,7 +3,7 @@ import { take, call, put } from 'redux-saga/effects';
 import * as fromActions from '../actions';
 import * as fromSocket from '../socket';
 
-const createScoketChannel = socket => eventChannel((emit) => {
+const createSocketChannel = socket => eventChannel((emit) => {
     const handler = (data) => {
         emit(data);
     };
@@ -15,7 +15,7 @@ const createScoketChannel = socket => eventChannel((emit) => {
 
 const listenServer = function* () {
     const socket = yield call(fromSocket.connect);
-    const socketChannel = yield call(createScoketChannel, socket);
+    const socketChannel = yield call(createSocketChannel, socket);
     while(true)
     {
         const payload = yield take(socketChannel);
