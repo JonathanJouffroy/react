@@ -1,8 +1,11 @@
 import React from 'react';
 import {Navbar, NavDropdown, Nav } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {  MDBContainer, MDBRow ,MDBCol} from 'mdbreact';
+import {  MDBContainer, MDBRow ,MDBCol, MDBTable, MDBTableHead, MDBTableBody} from 'mdbreact';
 import { Line, Polar, Doughnut } from 'react-chartjs-2';
+import { connect } from 'react-redux';
+import * as fromActions from '../actions';
+
 
 class Stats extends React.Component {
 
@@ -10,25 +13,22 @@ state = {
     dataPolar: {
         datasets: [
           {
-            data: [300, 50, 100, 40, 120],
+            data: [this.props.products[0].price, this.props.products[1].price, this.props.products[2].price, this.props.products[3].price],
             backgroundColor: [
-              "rgba(247, 70, 74, 0.5)",
-              "rgba(70, 191, 189, 0.5)",
-              "rgba(253, 180, 92, 0.5)",
-              "rgba(148, 159, 177, 0.5)",
-              "rgba(77, 83, 96, 0.5)"
+              "#F7464A", "#46BFBD", "#FDB45C", "#4D5360"
+             
             ],
             label: "My dataset" // for legend
           }
         ],
-        labels: ["Red", "Green", "Yellow", "Grey", "Dark Grey"]
+        labels: [this.props.products[0].name, this.props.products[1].name, this.props.products[2].name, this.props.products[3].name]
       },
     dataDoughnut: {
-      labels: ["Red", "Green", "Yellow", "Grey", "Dark Grey"],
+      labels: [this.props.products[0].name, this.props.products[1].name , this.props.products[2].name, this.props.products[3].name],
       datasets: [
         {
-          data: [300, 50, 100, 40, 120],
-          backgroundColor: ["#F7464A", "#46BFBD", "#FDB45C", "#949FB1", "#4D5360"],
+          data: [this.props.products[0].quantity, this.props.products[1].quantity, this.props.products[2].quantity, this.props.products[3].quantity],
+          backgroundColor: ["#F7464A", "#46BFBD", "#FDB45C", "#4D5360"],
           hoverBackgroundColor: [
             "#FF5A5E",
             "#5AD3D1",
@@ -88,6 +88,13 @@ state = {
       }
   }
 
+
+  componentDidMount = async () =>{
+    console.log('component did mount')
+    await this.props.getProducts()
+    await this.props.getUsers()
+  }
+
   render() {
 
     return (
@@ -101,7 +108,6 @@ state = {
                 <Nav.Link href="/Stats">Statistiques</Nav.Link>
                 <NavDropdown title="Produits" id="collasible-nav-dropdown">
                 <NavDropdown.Item href="/Products">Visualiser les produits</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.1">Ajouter un produits</NavDropdown.Item>
             </NavDropdown>
             </Nav>
                 <Nav>
@@ -111,18 +117,19 @@ state = {
             </Navbar>
             
             <MDBRow  className="text-center">
+            
                 <MDBCol>
-                    
+                <h3 className="mt-5">Stocks des produits</h3>
                     <MDBContainer>
-                        <h3 className="mt-5">Les meilleures ventes</h3>
+                        
                         <Doughnut data={this.state.dataDoughnut} options={{ responsive: true }} />
                     </MDBContainer>
                     
                 </MDBCol>
                 <MDBCol>
-                    
+                <h3 className="mt-5">Prix des produits</h3>
                     <MDBContainer>
-                        <h3 className="mt-5">Les plus consultés</h3>
+                        
                         <Polar data={this.state.dataPolar} options={{ responsive: true }} />
                     </MDBContainer>
                     
@@ -131,17 +138,51 @@ state = {
             </MDBRow>
             <MDBRow  className="text-center">
                 <MDBCol>
-                    
+                <h3 className="mt-5">Liste des utilisateurs</h3>
                     <MDBContainer>
-                        <h3 className="mt-5">Les produits commmandés</h3>
-                        <Line data={this.state.dataLine} options={{ responsive: true }} />
+                    <MDBTable bordered>
+                    <MDBTableHead>
+                            <tr>
+                              <th>Id</th>
+                              <th>Nom</th>
+                              <th>Prénom</th>
+                              <th>e-mail</th>
+                            </tr>
+                          </MDBTableHead>
+                      {this.props.users.map((e,i) =>
+
+                          
+                         
+                          <MDBTableBody>
+                            <tr>
+                              <td>{i}</td>
+                              <td>{e.name}</td>
+                              <td>{e.firstname}</td>
+                              <td>{e.email}</td>
+                            </tr>
+                          </MDBTableBody>
+                          
+                      
+                      
+                      )}
+                      </MDBTable>
                     </MDBContainer>
                         
                     </MDBCol>
 
             </MDBRow>
+            
         </div>
     );
     }
 }
-export default Stats;
+const mapStateToProps = (state) => ({
+  products: state.productsReducer.products,
+  users : state.usersReducer.users
+})
+
+const mapDispatchToProps = dispatch => ({
+  getProducts: () => dispatch(fromActions.getProductsSaga()),
+  getUsers: () => dispatch(fromActions.getUsersSaga())
+})
+export default connect(mapStateToProps, mapDispatchToProps)(Stats);

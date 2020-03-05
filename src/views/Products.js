@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { MDBCardGroup,MDBContainer, MDBRow ,MDBCol, MDBCard, MDBCardBody, MDBCardTitle, MDBCardText } from 'mdbreact';
 import { connect } from 'react-redux';
 import * as fromActions from '../actions';
-
+import './style.css'
 
 
 class Products extends React.Component {
@@ -32,7 +32,6 @@ state = {
                 <Nav.Link href="/Stats">Statistiques</Nav.Link>
                 <NavDropdown title="Produits" id="collasible-nav-dropdown">
                 <NavDropdown.Item href="/Products">Visualiser les produits</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.1">Ajouter un produits</NavDropdown.Item>
             </NavDropdown>
             </Nav>
                 <Nav>
@@ -40,53 +39,31 @@ state = {
                 </Nav>
             </Navbar.Collapse>
             </Navbar>
-            <MDBRow>
+            <h1  className="cardTexte text-center">Liste des produits</h1>
+            <MDBRow >
               <MDBCol>
                 <MDBContainer>
-                    <MDBCardGroup deck>
+                <MDBCardGroup deck >
+                    {this.props.products.map((e,i) =>
+                    
                         <MDBCard>
-                            <MDBCardBody>
-                                <MDBCardTitle tag="h5">{this.props.products[0].name}</MDBCardTitle>
+                            <MDBCardBody >
+                                <MDBCardTitle tag="h5">{e.name}</MDBCardTitle>
                                     <MDBCardText>
-                                        {this.props.products[0].description}
+                                        {e.description}
                                     </MDBCardText>
                                     <MDBCardText>
-                                        {"Prix : " +  + this.props.products[0].price + " " + "€"} 
+                                        {"Prix : " +  + e.price + " " + "€"} 
                                     </MDBCardText>
                                     <MDBCardText>
-                                        {"Quantité : " + this.props.products[0].quantity}
+                                        {"Quantité : " + e.quantity}
                                     </MDBCardText>
                             </MDBCardBody>
                         </MDBCard>
-                        <MDBCard>
-                            <MDBCardBody>
-                                <MDBCardTitle tag="h5">{this.props.products[1].name}</MDBCardTitle>
-                                    <MDBCardText>
-                                        {this.props.products[1].description}
-                                    </MDBCardText>
-                                    <MDBCardText>
-                                        {"Prix : " + this.props.products[1].price + + " " + "€"}
-                                    </MDBCardText>
-                                    <MDBCardText>
-                                        {"Quantité : " + this.props.products[1].quantity}
-                                    </MDBCardText>
-                            </MDBCardBody>
-                        </MDBCard>
-                        <MDBCard>
-                            <MDBCardBody>
-                                <MDBCardTitle tag="h5">{this.props.products[1].name}</MDBCardTitle>
-                                    <MDBCardText>
-                                        {this.props.products[1].description}
-                                    </MDBCardText>
-                                    <MDBCardText>
-                                        {"Prix : " + this.props.products[1].price + " " + "€"}
-                                    </MDBCardText>
-                                    <MDBCardText>
-                                        {"Quantité : " + this.props.products[1].quantity}
-                                    </MDBCardText>
-                            </MDBCardBody>
-                    </MDBCard>
-                </MDBCardGroup>
+                   
+                    
+                    )}
+                     </MDBCardGroup>
             </MDBContainer>
         </MDBCol>
     </MDBRow>

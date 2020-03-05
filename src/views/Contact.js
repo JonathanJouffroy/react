@@ -18,7 +18,6 @@ class Contact extends React.Component {
               <Nav.Link href="/Stats">Statistiques</Nav.Link>
               <NavDropdown title="Produits" id="collasible-nav-dropdown">
               <NavDropdown.Item href="/Products">Visualiser les produits</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.1">Ajouter un produits</NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <Nav>
