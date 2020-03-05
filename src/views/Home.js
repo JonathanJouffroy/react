@@ -8,6 +8,7 @@ import profil from  '../images/profil.png';
 import profil1 from '../images/profil-1.png';
 import profil2 from '../images/profil-2.png';
 import { getOrders } from '../api';
+import './style.css';
 
 class Home extends React.Component {
 
@@ -22,126 +23,82 @@ componentDidMount = async () =>{
   render() {
 
     return (
-        <div>
-            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-                <Navbar.Brand href="/Home">Home</Navbar.Brand>
-                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                <Navbar.Collapse id="responsive-navbar-nav">
-                <Nav className="mr-auto">
-                <Nav.Link href="/Orders">Commandes</Nav.Link>
-                <Nav.Link href="/Stats" > Statistiques</Nav.Link>
-                <NavDropdown title="Produits" id="collasible-nav-dropdown">
-                <NavDropdown.Item href="/Products">Visualiser les produits</NavDropdown.Item>
-            </NavDropdown>
+      <div>
+        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+          <Navbar.Brand href="/Home">Home</Navbar.Brand>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="mr-auto">
+              <Nav.Link href="/Orders">
+                Commandes
+              </Nav.Link>
+              <Nav.Link href="/Stats" >
+                Statistiques
+              </Nav.Link>
+              <NavDropdown title="Produits" id="collasible-nav-dropdown">
+                <NavDropdown.Item href="/Products">
+                  Visualiser les produits
+                </NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.1">
+                  Ajouter un produits
+                </NavDropdown.Item>
+              </NavDropdown>
             </Nav>
-                <Nav>
-                       <Nav.Link href="/Contact">Contact</Nav.Link>
-                </Nav>
-            </Navbar.Collapse>
-            </Navbar>  
-
-        <MDBRow className="mb-4 text-center cardTexte">
-        <MDBCol xl="3" md="6" className="mb-r">
-          <MDBContainer>
-          <MDBCard className="cascading-admin-card">
-              <div className="admin-up">
-                <div className="data">
-                  <p>Ventes</p>
-                  <h4>
-                    <strong>$2000</strong>
-                  </h4>
-                </div>
-              </div>
-              <MDBCardBody>
-                <div className="progress">
-                  <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="25" className="progress-bar bg-primary" role="progressbar"
-                    style={{width: '25%'}}></div>
-                </div>
-                <MDBCardText>Better than last week (25%)</MDBCardText>
-              </MDBCardBody>
-            </MDBCard>
-            </MDBContainer>
-        </MDBCol>
-        <MDBCol xl="3" md="6" className="mb-r">
-          <MDBCard className="cascading-admin-card">
-              <div className="admin-up">
-                <div className="data">
-                  <p>Nombre de produits</p>
-                  <h4>
-                    <strong>200</strong>
-                  </h4>
-                </div>
-              </div>
-              <MDBCardBody>
-                <div className="progress">
-                  <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="25" className="progress-bar bg grey" role="progressbar"
-                    style={{width: '25%'}}></div>
-                </div>
-                <MDBCardText>Worse than last week (25%)</MDBCardText>
-              </MDBCardBody>
-            </MDBCard>
-        </MDBCol>
-        <MDBCol xl="3" md="6" className="mb-r">
-          <MDBCard className="cascading-admin-card">
-              <div className="admin-up">
-                <div className="data">
-                  <p>Nombre de commandes</p>
-                  <h4>
-                    <strong></strong>
-                  </h4>
-                </div>
-              </div>
-              <MDBCardBody>
-                <div className="progress">
-                  <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="25" className="progress-bar grey darken-2" role="progressbar"
-                    style={{width: '75%'}}></div>
-                </div>
-                <MDBCardText>Worse than last week (75%)</MDBCardText>
-              </MDBCardBody>
-            </MDBCard>
-        </MDBCol>
-      </MDBRow>
-      <h1>Notre équipes</h1>
-        <MDBRow className="text-center">
-         <MDBCol>
-              <Card style={{ width: '15rem' }}>
+            <Nav>
+              <Nav.Link href="/Contact">
+                Contact
+              </Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
+        <div class="content title ">
+          <h1>Notre équipes</h1>
+        </div>
+        <div class="row text-center">
+          <div class="col content">
+            <Card style={{ width: '15rem' }}>
               <Card.Img variant="top" src={profil} />
               <Card.Body>
-                <Card.Title>{this.props.users[1].name + " " + this.props.users[1].firstname}</Card.Title>
+                <Card.Title>
+                  {this.props.users[1].name + " " + this.props.users[1].firstname}
+                </Card.Title>
                 <Card.Text>
-                <strong className="mb-2">Email: </strong>
-                  {this.props.users[1].email}
+                  <strong className="mb-2">Email: </strong>
+                  {this.props.users[1].email}          
                 </Card.Text>
               </Card.Body>
-      </Card>
-        </MDBCol>
-        <MDBCol>
+            </Card>
+          </div>
+          <div class="col content">
             <Card style={{ width: '15rem' }}>
-            <Card.Img variant="top" src={profil1} />
-            <Card.Body>
-              <Card.Title>{this.props.users[2].name + " " + this.props.users[2].firstname}</Card.Title>
-              <Card.Text>
-              <strong className="mb-2">Email: </strong>
-                {this.props.users[2].email}
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </MDBCol>
-        <MDBCol>
+              <Card.Img variant="top" src={profil1} />
+              <Card.Body>
+                <Card.Title>
+                  {this.props.users[2].name + " " + this.props.users[2].firstname}
+                </Card.Title>
+                <Card.Text>
+                  <strong className="mb-2">Email: </strong>
+                  {this.props.users[2].email}              
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </div>
+          <div class="col content">
             <Card style={{ width: '15rem' }}>
-            <Card.Img variant="top" src={profil2} />
-            <Card.Body>
-              <Card.Title>{this.props.users[4].name + " " + this.props.users[4].firstname}</Card.Title>
-              <Card.Text>
-              <strong className="mb-2">Email: </strong>
-                {this.props.users[4].email}
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </MDBCol>
-      </MDBRow>
-      
+              <Card.Img variant="top" src={profil2} />
+              <Card.Body>
+                <Card.Title>
+                  {this.props.users[4].name + " " + this.props.users[4].firstname}
+                </Card.Title>
+                <Card.Text>
+                  <strong className="mb-2">Email: </strong>
+                  {this.props.users[4].email}              
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </div>
         </div>
+      </div>
     );
     }
 }

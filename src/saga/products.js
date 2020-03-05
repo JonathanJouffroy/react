@@ -1,11 +1,4 @@
-import {
-    takeLatest,
-    call,
-    put,
-    takeEvery,
-    select,
-    fork
-} from 'redux-saga/effects'
+import { takeLatest, put } from 'redux-saga/effects'
 import * as fromActions from '../actions'
 import * as fromApi from '../api'
 

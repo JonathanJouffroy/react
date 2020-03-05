@@ -17,3 +17,12 @@
     color:black;
     margin-top: 3%;
 }
+
+.content {
+    display: flex;
+    justify-content: center;
+}
+
+.title {
+    margin: 1% auto 1% auto;
+}
