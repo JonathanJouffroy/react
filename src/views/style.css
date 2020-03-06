@@ -30,3 +30,8 @@
 .text-align {
     text-align: center;
 }
+
+.re-size {
+    width: 70%;
+    margin: auto !important;
+}

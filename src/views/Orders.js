@@ -1,5 +1,5 @@
 import React from 'react';
-import {Navbar, NavDropdown, Nav } from 'react-bootstrap';
+import NavBar from '../component/navbar.component';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { MDBCardGroup, MDBContainer, MDBRow ,MDBCol, MDBCard, MDBCardBody, MDBCardText } from 'mdbreact';
 import * as fromActions from '../actions';
@@ -58,32 +58,7 @@ class Orders extends React.Component {
 
     return (        
     <div>
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Navbar.Brand href="/Home">
-          Home
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="mr-auto">
-            <Nav.Link href="/Orders">
-              Commandes
-            </Nav.Link>
-            <Nav.Link href="/Stats" >
-               Statistiques
-            </Nav.Link>
-            <NavDropdown title="Produits" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="/Products">
-                Visualiser les produits
-              </NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-          <Nav>
-            <Nav.Link href="/Contact">
-              Contact
-            </Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
+      <NavBar></NavBar>
       <MDBRow className='text-center'>
         <MDBCol>
           <h1 className="cardTexte">Listes des commandes</h1>

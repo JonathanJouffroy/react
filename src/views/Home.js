@@ -1,7 +1,8 @@
 import React from 'react';
-import {Navbar, NavDropdown, Nav, Card } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { MDBCard, MDBIcon, MDBCardBody, MDBCardText } from 'mdbreact';
+import NavBar from '../component/navbar.component';
+import { Card } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import * as fromActions from '../actions'
 import profil from  '../images/profil.png';
@@ -34,37 +35,11 @@ componentDidMount = async () =>{
 
     return (
       <div>
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-          <Navbar.Brand href="/Home">Home</Navbar.Brand>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="mr-auto">
-              <Nav.Link href="/Orders">
-                Commandes
-              </Nav.Link>
-              <Nav.Link href="/Stats" >
-                Statistiques
-              </Nav.Link>
-              <NavDropdown title="Produits" id="collasible-nav-dropdown">
-                <NavDropdown.Item href="/Products">
-                  Visualiser les produits
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.1">
-                  Ajouter un produits
-                </NavDropdown.Item>
-              </NavDropdown>
-            </Nav>
-            <Nav>
-              <Nav.Link href="/Contact">
-                Contact
-              </Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-        </Navbar>
+        <NavBar></NavBar>
         <div class="content title">
           <h1>Chiffres clés</h1>
         </div>
-        <div class="row">
+        <div class="row re-size">
           <div class="col content">
             <MDBCard class="cascading-admin-card">
               <div class="admin-up">
