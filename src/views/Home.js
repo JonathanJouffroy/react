@@ -13,6 +13,8 @@ class Home extends React.Component {
 
 
 state = {
+
+
 }
 
 getTTOrders() {
@@ -30,6 +32,7 @@ componentDidMount = async () =>{
   await this.props.getOrders()
   await this.props.getProducts()
 }
+
   render() {
 
     return (
@@ -71,10 +74,11 @@ componentDidMount = async () =>{
                 <div class="data text-align">
                   <MDBIcon icon="chart-pie" class="light-blue lighten-1"/>
                   <p>Total de produits</p>
-                  <h4><strong>2000</strong></h4>
+                  <h4><strong>{ this.props.products.length }</strong></h4>
                 </div>
               </div>
               <MDBCardBody>
+                
                 <div class="progress">
                   <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="25"
                   class="progress-bar grey darken-2" role="progressbar" style={{ width: '75%' }}></div>

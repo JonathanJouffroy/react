@@ -94,8 +94,8 @@ class Orders extends React.Component {
           <MDBContainer>
             <MDBCardGroup deck >
                                     {this.props.orders.map((e,i) =>
-              <MDBCard className="cardS" >
-                <MDBCardBody className='text-center '>
+              <MDBCard >
+                <MDBCardBody className='text-center cardS'>
                   <MDBCardText>
                                     {"Numéro de la commande : " + e.name_order}                               
                   </MDBCardText>
