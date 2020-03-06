@@ -1,5 +1,6 @@
 import React from 'react';
 import NavBar from '../component/navbar.component';
+import OrderItem from '../component/order.component';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { MDBCardGroup, MDBContainer, MDBRow ,MDBCol, MDBCard, MDBCardBody, MDBCardText } from 'mdbreact';
 import * as fromActions from '../actions';
@@ -64,6 +65,7 @@ class Orders extends React.Component {
           <h1 className="cardTexte">Listes des commandes</h1>
         </MDBCol>
       </MDBRow>
+      <OrderItem></OrderItem>
       <MDBRow>
         <MDBCol>
           <MDBContainer>
