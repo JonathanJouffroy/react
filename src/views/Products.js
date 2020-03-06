@@ -1,7 +1,7 @@
 import React from 'react';
 import NavBar from '../component/navbar.component';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { MDBCardGroup,MDBContainer, MDBRow ,MDBCol, MDBCard, MDBCardBody, MDBCardTitle, MDBCardText } from 'mdbreact';
+import { MDBCardGroup,MDBContainer, MDBRow ,MDBCol, MDBCard, MDBCardBody, MDBCardTitle, MDBCardText,MDBTable, MDBTableBody,MDBTableHead } from 'mdbreact';
 import { connect } from 'react-redux';
 import * as fromActions from '../actions';
 import './style.css'
@@ -25,33 +25,41 @@ state = {
         <div>
             <NavBar></NavBar>
             <h1  className="cardTexte text-center">Liste des produits</h1>
-            <MDBRow >
-              <MDBCol>
-                <MDBContainer>
-                <MDBCardGroup deck >
-                    {this.props.products.map((e,i) =>
-                    
-                        <MDBCard>
-                            <MDBCardBody >
-                                <MDBCardTitle tag="h5">{e.name}</MDBCardTitle>
-                                    <MDBCardText>
-                                        {e.description}
-                                    </MDBCardText>
-                                    <MDBCardText>
-                                        {"Prix : " + e.price + " €"} 
-                                    </MDBCardText>
-                                    <MDBCardText>
-                                        {"Quantité : " + e.quantity}
-                                    </MDBCardText>
-                            </MDBCardBody>
-                        </MDBCard>
+         
+    <MDBRow>
+        <MDBCol>
+            <MDBContainer>
+                <MDBCard>
+            <MDBTable>
+                    <MDBTableHead color="primary-color" textWhite>
+                        <tr>
+                        <th>#</th>
+                        <th>Nom</th>
+                        <th>Prix</th>
+                        <th>Description</th>
+                        <th>Quantité</th>
+                        </tr>
+                    </MDBTableHead>
+                {this.props.products.map((e,i) =>
+                     <MDBTableBody>
+                     <tr>
+                        <td>{i}</td>
+                        <td>{e.name}</td>
+                        <td>{e.price + "€"} </td>
+                        <td>{e.description}</td>
+                        <td>{e.quantity}</td>
+                     </tr>
+                 </MDBTableBody>
+                
+                )}
                    
-                    
-                    )}
-                     </MDBCardGroup>
+                   
+                    </MDBTable>
+                </MDBCard>
             </MDBContainer>
         </MDBCol>
     </MDBRow>
+    
         </div>
     );
     }

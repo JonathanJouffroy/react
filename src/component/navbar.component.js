@@ -13,21 +13,24 @@ class NavBar extends React.Component {
         return (
             <div>
                 <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-                    <Navbar.Brand href="/Home">Home</Navbar.Brand>
+                    <Navbar.Brand href="/Home">Tableau de bord</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mr-auto">
                             <Nav.Link href="/Orders">
                                 Commandes
                             </Nav.Link>
+                            <Nav.Link href="/Products">
+                               Produits
+                            </Nav.Link>
                             <Nav.Link href="/Stats" >
                                 Statistiques
                             </Nav.Link>
-                            <Nav.Link href="/Products">
-                                Visualiser les produits
-                            </Nav.Link>
                         </Nav>
                         <Nav>
+                            <Nav.Link href="/">
+                                Accueil
+                            </Nav.Link>
                             <Nav.Link href="/Contact">
                                 Contact
                             </Nav.Link>
