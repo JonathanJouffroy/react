@@ -65,7 +65,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = dispatch => ({
      addOne: () => dispatch(fromActions.addOne()),
      addX: (x) => dispatch(fromActions.addX(x)),
-     getUsers: () => dispatch(fromActions.getUsersSaga())
+     getUsers: () => dispatch(fromActions.getUsersSaga()) 
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
