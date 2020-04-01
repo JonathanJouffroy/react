@@ -1,0 +1,134 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`action creators creates ADD_ONE when add was successful 1`] = `
+Array [
+  Object {
+    "payload": 10,
+    "type": "ADD_X",
+  },
+  Object {
+    "type": "ADD_ONE",
+  },
+]
+`;
+
+exports[`action creators creates ADD_X when add was successful 1`] = `
+Array [
+  Object {
+    "payload": 10,
+    "type": "ADD_X",
+  },
+]
+`;
+
+exports[`action creators show ALL_PRODUCTS  1`] = `
+Array [
+  Object {
+    "payload": 10,
+    "type": "ADD_X",
+  },
+  Object {
+    "type": "ADD_ONE",
+  },
+  Object {
+    "payload": undefined,
+    "type": "ALL_USERS",
+  },
+  Object {
+    "type": "GET_USERS_SAGA",
+  },
+  Object {
+    "type": "GET_ORDERS_SAGA",
+  },
+  Object {
+    "payload": undefined,
+    "type": "GET_PRODUCTS",
+  },
+]
+`;
+
+exports[`action creators show ALL_USERS  1`] = `
+Array [
+  Object {
+    "payload": 10,
+    "type": "ADD_X",
+  },
+  Object {
+    "type": "ADD_ONE",
+  },
+  Object {
+    "payload": undefined,
+    "type": "ALL_USERS",
+  },
+]
+`;
+
+exports[`action creators show GET_ORDERS_SAGA  1`] = `
+Array [
+  Object {
+    "payload": 10,
+    "type": "ADD_X",
+  },
+  Object {
+    "type": "ADD_ONE",
+  },
+  Object {
+    "payload": undefined,
+    "type": "ALL_USERS",
+  },
+  Object {
+    "type": "GET_USERS_SAGA",
+  },
+  Object {
+    "type": "GET_ORDERS_SAGA",
+  },
+]
+`;
+
+exports[`action creators show GET_PRODUCTS_SAGA   1`] = `
+Array [
+  Object {
+    "payload": 10,
+    "type": "ADD_X",
+  },
+  Object {
+    "type": "ADD_ONE",
+  },
+  Object {
+    "payload": undefined,
+    "type": "ALL_USERS",
+  },
+  Object {
+    "type": "GET_USERS_SAGA",
+  },
+  Object {
+    "type": "GET_ORDERS_SAGA",
+  },
+  Object {
+    "payload": undefined,
+    "type": "GET_PRODUCTS",
+  },
+  Object {
+    "type": "GET_PRODUCTS_SAGA",
+  },
+]
+`;
+
+exports[`action creators show GET_USERS_SAGA  1`] = `
+Array [
+  Object {
+    "payload": 10,
+    "type": "ADD_X",
+  },
+  Object {
+    "type": "ADD_ONE",
+  },
+  Object {
+    "payload": undefined,
+    "type": "ALL_USERS",
+  },
+  Object {
+    "type": "GET_USERS_SAGA",
+  },
+]
+`;
