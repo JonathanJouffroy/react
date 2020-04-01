@@ -2,11 +2,12 @@ import React from 'react';
 import NavBar from '../component/navbar.component';
 import OrderItem from '../component/order.component';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { MDBCardGroup, MDBContainer, MDBRow ,MDBCol, MDBCard, MDBCardBody, MDBCardText } from 'mdbreact';
+import { MDBCardGroup, MDBContainer, MDBRow ,MDBCol } from 'mdbreact';
 import * as fromActions from '../actions';
 import { connect } from 'react-redux';
 import './style.css';
-class Orders extends React.Component {
+
+export class Orders extends React.Component {
 
   constructor(props)
   {
@@ -65,29 +66,14 @@ class Orders extends React.Component {
           <h1 className="cardTexte">Listes des commandes</h1>
         </MDBCol>
       </MDBRow>
-      <OrderItem></OrderItem>
       <MDBRow>
         <MDBCol>
           <MDBContainer>
             <MDBCardGroup deck >
-                                    {this.props.orders.map((e,i) =>
-              <MDBCard >
-                <MDBCardBody className='text-center cardS'>
-                  <MDBCardText>
-                                    {"Numéro de la commande : " + e.name_order}                               
-                  </MDBCardText>
-                  <MDBCardText>
-                                    {"Prix de la commande : " + e.price_order + "€"}                               
-                  </MDBCardText>
-                  <MDBCardText>
-                                    {"Adresse de livraison : " + e.ship_address}                               
-                  </MDBCardText>
-                  <MDBCardText>
-                                    {"Adresse de facturation : " + e.billing_address}                               
-                  </MDBCardText>
-                </MDBCardBody>
-              </MDBCard>
-                                )}                                     
+              {this.props.orders.map((e,i) =>
+                <OrderItem nbOrder={ e.name_order } price_order={ e.price_order }
+                ship_address={ e.ship_address } billing_address={ e.billing_address } ></OrderItem>
+              )}                                     
             </MDBCardGroup>
           </MDBContainer>
         </MDBCol>

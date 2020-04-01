@@ -10,7 +10,7 @@ import User from '../component/user.component'
 
 
 
-class App extends React.Component {
+export class App extends React.Component {
 
 
 constructor(props) {
@@ -50,7 +50,6 @@ componentDidMount = async () =>{
         <button onClick={() => this.addInfected()}>Ajouter</button>
         <p>{this.props.values}</p>
         <button onClick={() => this.props.addOne()}>Add One</button>
-        <input type='text' name='numero' />
         { this.props.users.map((e,i) => <User text={e.name}></User>) }
       </header>
     </div>

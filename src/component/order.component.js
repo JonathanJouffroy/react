@@ -1,6 +1,6 @@
 import React from 'react';
 import { MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText} from 'mdbreact';
-
+import image from '../images/sales.jpg';
 class Order extends React.Component {
 
     render () 
@@ -8,12 +8,16 @@ class Order extends React.Component {
         return (
             <div>
                 <MDBCard style={{ width: "22rem" }}>
-                <MDBCardImage className="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" waves />
+                <MDBCardImage className="img-fluid" src={image} waves />
                     <MDBCardBody>
-                        <MDBCardTitle>Card title</MDBCardTitle>
+                        <MDBCardTitle>N° de commande : { this.props.nbOrder}</MDBCardTitle>
                         <MDBCardText>
-                            Some quick example text to build on the card title and make
-                            up the bulk of the cards content.
+                            <label>Prix de la commande : { this.props.price_order } €</label>
+                            <label>Adresse de livraison : { this.props.ship_address }</label>
+                            <label>Adresse de facturation : { this.props.billing_address }</label>
+                        </MDBCardText>
+                        <MDBCardText>
+
                         </MDBCardText>
                     </MDBCardBody>
                 </MDBCard>

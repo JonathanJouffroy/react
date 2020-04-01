@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import * as fromActions from '../actions';
 
 
-class Stats extends React.Component {
+export class Stats extends React.Component {
 
 state = {
     dataPolar: {

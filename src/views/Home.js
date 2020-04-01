@@ -10,7 +10,7 @@ import profil1 from '../images/profil-1.png';
 import profil2 from '../images/profil-2.png';
 import './style.css';
 
-class Home extends React.Component {
+export class Home extends React.Component {
 
 
 state = {
@@ -56,10 +56,10 @@ componentDidMount = async () =>{
                 
                 <div class="progress">
                   <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="25"
-                  class="progress-bar grey darken-2" role="progressbar" style={{ width: '75%' }}></div>
+                  class="progress-bar red darken-2" role="progressbar" style={{ width: '10%' }}></div>
                 </div>
                 <MDBCardText>
-                  Worse than last week (75%)
+                  Stock de produits bas (10%)
                 </MDBCardText>
               </MDBCardBody>
             </MDBCard>
@@ -76,10 +76,10 @@ componentDidMount = async () =>{
               <MDBCardBody>
                 <div class="progress">
                   <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="25"
-                  class="progress-bar grey darken-2" role="progressbar" style={{ width: '12%' }}></div>
+                  class="progress-bar green darken-2" role="progressbar" style={{ width: '64%' }}></div>
                 </div>
                 <MDBCardText>
-                  Worse than last week (12%)
+                  Amélioration des ventes (+64%)
                 </MDBCardText>
               </MDBCardBody>
             </MDBCard>
@@ -96,10 +96,10 @@ componentDidMount = async () =>{
               <MDBCardBody>
                 <div class="progress">
                   <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="25"
-                  class="progress-bar grey darken-2" role="progressbar" style={{ width: '75%' }}></div>
+                  class="progress-bar green darken-2" role="progressbar" style={{ width: '75%' }}></div>
                 </div>
                 <MDBCardText>
-                  Worse than last week (75%)
+                  Croissance hebdomadaire (+75%)
                 </MDBCardText>
               </MDBCardBody>
             </MDBCard>
@@ -142,11 +142,11 @@ componentDidMount = async () =>{
               <Card.Img variant="top" src={profil2} />
               <Card.Body>
                 <Card.Title>
-                  {this.props.users[4].name + " " + this.props.users[4].firstname}
+                  {this.props.users[0].name + " " + this.props.users[0].firstname}
                 </Card.Title>
                 <Card.Text>
                   <strong className="mb-2">Email: </strong>
-                  {this.props.users[4].email}              
+                  {this.props.users[0].email}              
                 </Card.Text>
               </Card.Body>
             </Card>

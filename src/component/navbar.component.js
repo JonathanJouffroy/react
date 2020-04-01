@@ -28,11 +28,11 @@ class NavBar extends React.Component {
                             </Nav.Link>
                         </Nav>
                         <Nav>
-                            <Nav.Link href="/">
-                                Accueil
-                            </Nav.Link>
                             <Nav.Link href="/Contact">
                                 Contact
+                            </Nav.Link>
+                            <Nav.Link href="/">
+                                Accueil
                             </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>

@@ -1,18 +1,20 @@
 import React from 'react';
 import NavBar from '../component/navbar.component'
-import { MDBRow, MDBCol, MDBCardBody, MDBIcon, MDBBtn, MDBInput } from "mdbreact";
+import { MDBRow, MDBCol, MDBCardBody, MDBIcon, MDBBtn, MDBInput, MDBCardImage } from "mdbreact";
+import contactImg from '../images/contact.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
-class Contact extends React.Component {
+export class Contact extends React.Component {
 
   render() {
 
     return (
       <div>
         <NavBar></NavBar>
-        <section className="contact-section my-5">
-        <MDBRow>
-          <MDBCol lg="8">
+        <MDBCardImage className="img-fluid" style={{ width: '70%', margin: '1% auto 0% auto   ' }} src={contactImg} waves />
+        <section className="contact-section">
+        <MDBRow class="content">
+          <MDBCol lg="6" style={{ margin: 'auto' }}>
             <MDBCardBody className="form">
               <h3 className="mt-4">
                 <MDBIcon icon="envelope" className="pr-2" />
@@ -74,7 +76,9 @@ class Contact extends React.Component {
               </MDBRow>
             </MDBCardBody>
           </MDBCol>
-          <MDBCol lg="4">
+        </MDBRow>
+        <MDBRow>
+        <MDBCol>
             <MDBCardBody className="contact text-center h-100">
               <h3 className="my-4 pb-2">Information de contact</h3>
               <ul className="list-unstyled ml-4">

@@ -1,13 +1,13 @@
 import React from 'react';
 import NavBar from '../component/navbar.component';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { MDBCardGroup,MDBContainer, MDBRow ,MDBCol, MDBCard, MDBCardBody, MDBCardTitle, MDBCardText,MDBTable, MDBTableBody,MDBTableHead } from 'mdbreact';
+import { MDBContainer, MDBRow ,MDBCol, MDBCard, MDBTable, MDBTableBody,MDBTableHead } from 'mdbreact';
 import { connect } from 'react-redux';
 import * as fromActions from '../actions';
 import './style.css'
 
 
-class Products extends React.Component {
+export class Products extends React.Component {
 
 
 state = {
