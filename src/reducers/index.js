@@ -2,14 +2,14 @@ import { combineReducers } from 'redux'
 import valuesReducer  from './add'
 import usersReducer  from './users'
 import productsReducer from './products'
-import socketReducer from './socket'
+//import socketReducer from './socket'
 import ordersReducer from './orders'
 
 const appReducer = combineReducers({
     valuesReducer,
     usersReducer,
     productsReducer,
-    socketReducer,
+    //socketReducer,
     ordersReducer
 })
 
