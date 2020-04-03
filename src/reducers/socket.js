@@ -1,4 +1,4 @@
-/*import * as fromActions from '../actions'
+import * as fromActions from '../actions'
 
 let initialState = {
     socket:[]
@@ -13,4 +13,4 @@ const SocketReducer = (state = initialState, action) => {
     }
 }
 
-export default SocketReducer*/
+export default SocketReducer

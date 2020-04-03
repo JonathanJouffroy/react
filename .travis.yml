@@ -12,5 +12,5 @@ deploy:
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key: $AWS_SECRET_KEY
   bucket: reactappcdi
-  local-dir: $TRAVIS_BUILD_DIR/.git
+  local-dir: build
   acl: public_read

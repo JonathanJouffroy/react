@@ -1,4 +1,4 @@
-/*import { eventChannel } from 'redux-saga';
+import { eventChannel } from 'redux-saga';
 import { take, call, put } from 'redux-saga/effects';
 import * as fromActions from '../actions';
 import * as fromSocket from '../socket';
@@ -22,4 +22,4 @@ const listenServer = function* () {
     }
 }
 
-export default listenServer*/
+export default listenServer
