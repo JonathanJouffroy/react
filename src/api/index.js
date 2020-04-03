@@ -1,5 +1,5 @@
 export const getUsers = async () => {
-    const url ='http://localhost:8080/v1/users'
+    const url ='https://nodea-ppjs.herokuapp.com/v1/users'
     try{
         const response = await fetch(url, {
             method: 'GET',
@@ -17,7 +17,7 @@ export const getUsers = async () => {
 
 
 export const getProducts = async () => {
-    const url ='http://localhost:8080/v1/products'
+    const url ='https://nodea-ppjs.herokuapp.com/v1/products'
     try{
         const response = await fetch(url, {
             method: 'GET',
@@ -34,7 +34,7 @@ export const getProducts = async () => {
 
 
 export const getOrders = async () => {
-    const url='http://localhost:8080/v1/orders'
+    const url='https://nodea-ppjs.herokuapp.com/v1/orders'
     try{
         const response = await fetch(url, {
             method: 'GET',
