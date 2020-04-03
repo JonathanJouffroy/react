@@ -49,7 +49,7 @@ componentDidMount = async () =>{
         <input type='text' name='infected' onChange={(e) => this.handleChange(e)}/>
         <button onClick={() => this.addInfected()}>Ajouter</button>
         <p>{this.props.values}</p>
-        <button onClick={() => this.props.addOne()}>Add On</button>
+        <button onClick={() => this.props.addOne()}>Add One</button>
         { this.props.users.map((e,i) => <User text={e.name}></User>) }
       </header>
     </div>
